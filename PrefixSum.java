@@ -1,23 +1,17 @@
 import java.util.Scanner;
-public class SortArr01{
-     public static void sort(int arr[],int n){
-        int zeros=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]==0){
-                zeros++;
-            }
+public class PrefixSum{
+     public static void prefixSum(int arr[],int n){
+        int ans[]=new int[n];
+        ans[0]=arr[0];
+        for(int i=1;i<n;i++){
+            ans[i]=ans[i-1]+arr[i];
         }
         for(int i=0;i<n;i++){
-            if(i<zeros){
-                arr[i]=0;
-            }else{
-                arr[i]=1;
-            }
+            System.out.print(ans[i]+" ");
         }
-     }
+        System.out.println();
+  }
 
-
-    
      public static void printArray(int arr[],int n){
             for(int i=0;i<n;i++){
                 System.out.print(arr[i]+" ");
@@ -33,7 +27,6 @@ public class SortArr01{
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        sort(arr, n);
-        printArray(arr, n);
+        prefixSum(arr, n);
     }
 }
